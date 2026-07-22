@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="lockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <rect width="504" height="504" x="4" y="4" rx="108" fill="none" stroke="rgba(99, 102, 241, 0.3)" stroke-width="8"/>
+
+  <!-- Outer Glow Shield -->
+  <path d="M256 70 L390 120 V250 C390 340 330 415 256 445 C182 415 122 340 122 250 V120 Z" fill="url(#shieldGrad)" filter="url(#glow)" opacity="0.4"/>
+
+  <!-- Shield Base -->
+  <path d="M256 80 L380 126 V246 C380 330 324 400 256 430 C188 400 132 330 132 246 V126 Z" fill="url(#shieldGrad)"/>
+
+  <!-- Inner Shield Accent -->
+  <path d="M256 102 L360 142 V242 C360 314 312 376 256 404 C200 376 152 314 152 242 V142 Z" fill="#0f172a" opacity="0.85"/>
+
+  <!-- Lock Body -->
+  <rect x="206" y="240" width="100" height="84" rx="16" fill="url(#lockGrad)"/>
+  
+  <!-- Lock Shackle -->
+  <path d="M222 240 V200 C222 181 237 166 256 166 C275 166 290 181 290 200 V240" fill="none" stroke="url(#lockGrad)" stroke-width="18" stroke-linecap="round"/>
+
+  <!-- Lock Keyhole -->
+  <circle cx="256" cy="275" r="9" fill="#0f172a"/>
+  <polygon points="252,275 260,275 262,298 250,298" fill="#0f172a"/>
+</svg>

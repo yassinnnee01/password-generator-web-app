@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Password Generator Pro+ — Commercial-Grade Client-Side Cybersecurity Toolkit with Web Crypto AES-GCM Encrypted Vault, Health Checker, and Offline Breach Protection.">
+  <meta name="theme-color" content="#0f172a">
+  <title>Password Generator Pro+ | Cybersecurity Toolkit</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-background">
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+  </div>
+
+  <!-- Application Layout -->
+  <div class="app-container">
+
+    <!-- Sidebar / Navigation -->
+    <aside class="app-sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name">CyberGuard</span>
+            <span class="brand-badge">PRO+</span>
+          </div>
+        </div>
+        <button class="icon-btn mobile-close-btn" id="mobileSidebarClose" aria-label="Close menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <span class="nav-section-title" data-i18n="navCore">CORE TOOLKIT</span>
+          <button class="nav-item active" data-tab="dashboard" id="nav-dashboard">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span data-i18n="tabDashboard">Dashboard</span>
+          </button>
+          <button class="nav-item" data-tab="generator" id="nav-generator">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+            <span data-i18n="tabGenerator">Password Generator</span>
+          </button>
+          <button class="nav-item" data-tab="checker" id="nav-checker">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            <span data-i18n="tabChecker">Health Checker</span>
+          </button>
+          <button class="nav-item" data-tab="vault" id="nav-vault">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span data-i18n="tabVault">Encrypted Vault</span>
+            <span class="nav-badge" id="vaultCountBadge">0</span>
+          </button>
+          <button class="nav-item" data-tab="security" id="nav-security">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            <span data-i18n="tabSecurity">Security Audit</span>
+          </button>
+        </div>
+
+        <div class="nav-section">
+          <span class="nav-section-title" data-i18n="navSpecialized">SPECIALIZED GENERATORS</span>
+          <button class="nav-item" data-tab="passphrase" id="nav-passphrase">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"></path><path d="M9 20h6"></path><path d="M12 4v16"></path></svg>
+            <span data-i18n="tabPassphrase">Passphrase Generator</span>
+          </button>
+          <button class="nav-item" data-tab="pronounceable" id="nav-pronounceable">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12.01" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            <span data-i18n="tabPronounceable">Pronounceable</span>
+          </button>
+          <button class="nav-item" data-tab="username" id="nav-username">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span data-i18n="tabUsername">Username Generator</span>
+          </button>
+          <button class="nav-item" data-tab="pin" id="nav-pin">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><circle cx="6" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="18" cy="12" r="1"></circle></svg>
+            <span data-i18n="tabPin">PIN Generator</span>
+          </button>
+          <button class="nav-item" data-tab="wifi" id="nav-wifi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+            <span data-i18n="tabWifi">Wi-Fi Passwords</span>
+          </button>
+        </div>
+
+        <div class="nav-section">
+          <span class="nav-section-title" data-i18n="navSystem">SYSTEM & HELP</span>
+          <button class="nav-item" data-tab="settings" id="nav-settings">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <span data-i18n="tabSettings">Settings</span>
+          </button>
+          <button class="nav-item" data-tab="help" id="nav-help">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            <span data-i18n="tabHelp">Help & Guide</span>
+          </button>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="privacy-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <div class="privacy-info">
+            <span class="privacy-title" data-i18n="privacyBadgeTitle">100% Client-Side</span>
+            <span class="privacy-sub" data-i18n="privacyBadgeSub">Zero data leaves browser</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="app-main">
+      
+      <!-- Top Sticky Header -->
+      <header class="app-header">
+        <div class="header-left">
+          <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="page-title-wrap">
+            <h1 id="pageTitle" data-i18n="titleDashboard">Dashboard</h1>
+            <span class="page-subtitle" id="pageSubtitle" data-i18n="subDashboard">Cybersecurity Overview & Quick Actions</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Language Selector -->
+          <div class="lang-selector">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <select id="langSelect" aria-label="Select Language">
+              <option value="en">English (US)</option>
+              <option value="fr">Français</option>
+              <option value="ar">العربية (Arabic)</option>
+            </select>
+          </div>
+
+          <!-- Theme Toggle -->
+          <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle Theme">
+            <div class="theme-icon sun-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </div>
+            <div class="theme-icon moon-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </div>
+          </button>
+
+          <!-- PWA Install Button -->
+          <button class="btn btn-sm btn-accent pwa-install-btn hidden" id="pwaInstallBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span data-i18n="installApp">Install App</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- View Container -->
+      <main class="content-body">
+
+        <!-- ==================== DASHBOARD VIEW ==================== -->
+        <section class="tab-view active" id="view-dashboard">
+          <!-- Hero Banner -->
+          <div class="dash-hero">
+            <div class="hero-content">
+              <div class="status-pill green">
+                <span class="pulse-dot"></span>
+                <span data-i18n="cryptoEngineActive">Crypto Engine Active (WebCrypto API)</span>
+              </div>
+              <h2 data-i18n="dashWelcomeTitle">Enterprise Security & Password Management</h2>
+              <p data-i18n="dashWelcomeSub">Generate high-entropy passwords, check existing credentials against offline breach lists, and secure logins with AES-GCM 256-bit encryption.</p>
+              <div class="hero-actions">
+                <button class="btn btn-primary" onclick="app.switchTab('generator')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+                  <span data-i18n="quickGenerateBtn">Generate Password</span>
+                </button>
+                <button class="btn btn-secondary" onclick="app.switchTab('vault')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <span data-i18n="openVaultBtn">Open Encrypted Vault</span>
+                </button>
+              </div>
+            </div>
+            <div class="hero-gauge-card">
+              <div class="gauge-container">
+                <svg class="gauge-svg" viewBox="0 0 120 120">
+                  <circle class="gauge-bg" cx="60" cy="60" r="50" />
+                  <circle class="gauge-fill" id="dashGaugeCircle" cx="60" cy="60" r="50" style="stroke-dashoffset: 80;" />
+                </svg>
+                <div class="gauge-center">
+                  <span class="gauge-score" id="dashScoreValue">88</span>
+                  <span class="gauge-label" data-i18n="securityScoreLabel">Security Score</span>
+                </div>
+              </div>
+              <div class="gauge-footer" id="dashGaugeFooter" data-i18n="vaultStatusGood">Vault Protection Optimal</div>
+            </div>
+          </div>
+
+          <!-- Quick Stats Grid -->
+          <div class="grid-4 mt-6">
+            <div class="stat-card">
+              <div class="stat-icon blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <div class="stat-details">
+                <span class="stat-value" id="statTotalVault">0</span>
+                <span class="stat-title" data-i18n="statVaultEntries">Vault Items</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div class="stat-details">
+                <span class="stat-value" id="statStrongCount">0</span>
+                <span class="stat-title" data-i18n="statStrongPass">Strong Passwords</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon yellow">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              </div>
+              <div class="stat-details">
+                <span class="stat-value" id="statReusedCount">0</span>
+                <span class="stat-title" data-i18n="statReusedPass">Reused / Weak</span>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <div class="stat-icon purple">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </div>
+              <div class="stat-details">
+                <span class="stat-value" id="statOldCount">0</span>
+                <span class="stat-title" data-i18n="statOldPass">Expired (>90 days)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Tools Grid -->
+          <div class="grid-2 mt-6">
+            <div class="card">
+              <div class="card-header">
+                <h3 data-i18n="quickToolsTitle">Quick Generators</h3>
+              </div>
+              <div class="card-body tool-quick-list">
+                <button class="tool-quick-item" onclick="app.switchTab('generator')">
+                  <div class="t-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg></div>
+                  <div class="t-info">
+                    <h4 data-i18n="qPassTitle">Standard Password Generator</h4>
+                    <p data-i18n="qPassDesc">8-36 length, high entropy, custom rules & difficulty levels.</p>
+                  </div>
+                </button>
+                <button class="tool-quick-item" onclick="app.switchTab('passphrase')">
+                  <div class="t-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"></path><path d="M9 20h6"></path><path d="M12 4v16"></path></svg></div>
+                  <div class="t-info">
+                    <h4 data-i18n="qPassphraseTitle">Memorable Passphrase</h4>
+                    <p data-i18n="qPassphraseDesc">Transform sentences like 'I love Morocco 2026' into secure tokens.</p>
+                  </div>
+                </button>
+                <button class="tool-quick-item" onclick="app.switchTab('pronounceable')">
+                  <div class="t-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path></svg></div>
+                  <div class="t-info">
+                    <h4 data-i18n="qPronounceTitle">Pronounceable Generator</h4>
+                    <p data-i18n="qPronounceDesc">Generate easy-to-remember phonetic words (e.g. MekoFira82!).</p>
+                  </div>
+                </button>
+                <button class="tool-quick-item" onclick="app.switchTab('wifi')">
+                  <div class="t-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg></div>
+                  <div class="t-info">
+                    <h4 data-i18n="qWifiTitle">Wi-Fi Password & QR</h4>
+                    <p data-i18n="qWifiDesc">Create high-entropy WPA2/WPA3 keys with instant QR connection code.</p>
+                  </div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Daily Security Tip Carousel -->
+            <div class="card">
+              <div class="card-header flex-between">
+                <h3 data-i18n="dailyTipTitle">Daily Cybersecurity Insights</h3>
+                <div class="tip-controls">
+                  <button class="icon-btn-sm" id="prevTipBtn" aria-label="Previous tip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                  <button class="icon-btn-sm" id="nextTipBtn" aria-label="Next tip"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="tip-box">
+                  <div class="tip-badge" id="tipCategory">Password Hygiene</div>
+                  <h4 class="tip-headline" id="tipHeadline">Never Reuse Master Passwords</h4>
+                  <p class="tip-body" id="tipBody">Reusing passwords across services makes you vulnerable to credential stuffing attacks. Use CyberGuard Pro+ to generate unique, cryptographically random keys for every service.</p>
+                </div>
+                <div class="tip-footer mt-4">
+                  <span class="text-xs text-muted" id="tipCounter">Tip 1 of 6</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==================== PASSWORD GENERATOR VIEW ==================== -->
+        <section class="tab-view" id="view-generator">
+          
+          <!-- Category Recommendation Bar -->
+          <div class="category-preset-bar mb-6">
+            <span class="preset-label" data-i18n="presetLabel">Optimized Category Presets:</span>
+            <div class="preset-chips">
+              <button class="chip active" data-preset="custom" data-i18n="presetCustom">Custom</button>
+              <button class="chip" data-preset="email" data-i18n="presetEmail">Email</button>
+              <button class="chip" data-preset="bank" data-i18n="presetBank">Banking</button>
+              <button class="chip" data-preset="social" data-i18n="presetSocial">Social Media</button>
+              <button class="chip" data-preset="gaming" data-i18n="presetGaming">Gaming</button>
+              <button class="chip" data-preset="server" data-i18n="presetServer">Server / SSH</button>
+              <button class="chip" data-preset="crypto" data-i18n="presetCrypto">Crypto Wallet</button>
+              <button class="chip" data-preset="wifi" data-i18n="presetWifi">Wi-Fi Router</button>
+            </div>
+          </div>
+
+          <!-- Main Output Display -->
+          <div class="password-output-card">
+            <div class="output-top-bar">
+              <span class="security-badge" id="genStrengthBadge">EXPERT</span>
+              <div class="output-quick-actions">
+                <button class="action-btn" id="genQrBtn" title="Show QR Code">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="3" height="3"></rect></svg>
+                </button>
+                <button class="action-btn" id="genExportBtn" title="Export Password">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </button>
+                <button class="action-btn" id="saveToVaultBtn" title="Save to Encrypted Vault">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="password-display-wrapper">
+              <div class="password-display" id="passwordOutput" contenteditable="false" aria-label="Generated Password">
+                Select options to generate password
+              </div>
+              <button class="btn btn-copy" id="copyPasswordBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span data-i18n="copyBtn">Copy Password</span>
+              </button>
+            </div>
+
+            <!-- Strength Meter Bar -->
+            <div class="meter-wrapper">
+              <div class="meter-bar">
+                <div class="meter-fill" id="genMeterFill" style="width: 100%;"></div>
+              </div>
+              <div class="meter-info">
+                <span id="genEntropyText">Entropy: 128.4 bits</span>
+                <span id="genCrackTimeText">Estimated crack time: 4.2 Trillion Years</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls Section -->
+          <div class="grid-2 mt-6">
+            
+            <!-- Left Panel: Length & Difficulty -->
+            <div class="card">
+              <div class="card-header">
+                <h3 data-i18n="lengthDifficultyTitle">Length & Difficulty</h3>
+              </div>
+              <div class="card-body">
+                
+                <!-- Fixed Length Buttons -->
+                <div class="form-group">
+                  <label class="form-label" data-i18n="selectLength">Select Length (Strict Presets)</label>
+                  <div class="length-presets">
+                    <button class="btn-preset" data-length="8">8</button>
+                    <button class="btn-preset" data-length="12">12</button>
+                    <button class="btn-preset active" data-length="16">16</button>
+                    <button class="btn-preset" data-length="24">24</button>
+                    <button class="btn-preset" data-length="36">36</button>
+                  </div>
+                  <div class="slider-wrap mt-3">
+                    <input type="range" id="lengthSlider" min="8" max="36" value="16" step="1">
+                    <span class="length-indicator" id="lengthValue">16</span>
+                  </div>
+                </div>
+
+                <!-- Difficulty Levels -->
+                <div class="form-group mt-6">
+                  <label class="form-label" data-i18n="difficultyLevel">Difficulty Level</label>
+                  <div class="difficulty-options">
+                    <button class="btn-diff" data-diff="easy">
+                      <span class="diff-title" data-i18n="diffEasy">Easy</span>
+                      <span class="diff-desc" data-i18n="diffEasyDesc">Lowercase only</span>
+                    </button>
+                    <button class="btn-diff" data-diff="medium">
+                      <span class="diff-title" data-i18n="diffMedium">Medium</span>
+                      <span class="diff-desc" data-i18n="diffMediumDesc">a-z, A-Z, 0-9</span>
+                    </button>
+                    <button class="btn-diff" data-diff="hard">
+                      <span class="diff-title" data-i18n="diffHard">Hard</span>
+                      <span class="diff-desc" data-i18n="diffHardDesc">+ Common symbols</span>
+                    </button>
+                    <button class="btn-diff active" data-diff="expert">
+                      <span class="diff-title" data-i18n="diffExpert">Expert</span>
+                      <span class="diff-desc" data-i18n="diffExpertDesc">Max randomness & special</span>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Right Panel: Rules & Customizations -->
+            <div class="card">
+              <div class="card-header">
+                <h3 data-i18n="customRulesTitle">Custom Character Rules</h3>
+              </div>
+              <div class="card-body">
+                <div class="checkbox-grid">
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="chkUppercase" checked>
+                    <span class="checkmark"></span>
+                    <span class="cb-text" data-i18n="cbUppercase">Include Uppercase (A-Z)</span>
+                  </label>
+
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="chkLowercase" checked>
+                    <span class="checkmark"></span>
+                    <span class="cb-text" data-i18n="cbLowercase">Include Lowercase (a-z)</span>
+                  </label>
+
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="chkNumbers" checked>
+                    <span class="checkmark"></span>
+                    <span class="cb-text" data-i18n="cbNumbers">Include Numbers (0-9)</span>
+                  </label>
+
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="chkSymbols" checked>
+                    <span class="checkmark"></span>
+                    <span class="cb-text" data-i18n="cbSymbols">Include Symbols (!@#$%^&*)</span>
+                  </label>
+
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="chkAvoidAmbiguous">
+                    <span class="checkmark"></span>
+                    <span class="cb-text" data-i18n="cbAvoidAmbiguous">Avoid ambiguous (O, 0, I, l, |)</span>
+                  </label>
+
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="chkNoRepeatedConsecutive">
+                    <span class="checkmark"></span>
+                    <span class="cb-text" data-i18n="cbNoRepeated">No repeated consecutive characters</span>
+                  </label>
+
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="chkStartLetter">
+                    <span class="checkmark"></span>
+                    <span class="cb-text" data-i18n="cbStartLetter">Start with a letter</span>
+                  </label>
+
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="chkExcludeSimilar">
+                    <span class="checkmark"></span>
+                    <span class="cb-text" data-i18n="cbExcludeSimilar">Exclude similar symbols ({ } [ ] ( ) / \ ' " ` ~)</span>
+                  </label>
+
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="chkExcludeSpaces" checked>
+                    <span class="checkmark"></span>
+                    <span class="cb-text" data-i18n="cbExcludeSpaces">Exclude spaces</span>
+                  </label>
+
+                  <label class="custom-checkbox">
+                    <input type="checkbox" id="chkAllowEmojis">
+                    <span class="checkmark"></span>
+                    <span class="cb-text" data-i18n="cbAllowEmojis">Allow emojis (Experimental)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Action Toolbar -->
+          <div class="action-toolbar mt-6">
+            <button class="btn btn-primary btn-lg" id="btnGenerate">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+              <span data-i18n="btnGeneratePassword">Generate Password</span>
+            </button>
+            <button class="btn btn-secondary" id="btnGenerateAnother">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+              <span data-i18n="btnGenerateAnother">Generate Another</span>
+            </button>
+            <button class="btn btn-secondary" id="btnRandomizeAll">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
+              <span data-i18n="btnRandomizeEverything">Randomize Everything</span>
+            </button>
+            <button class="btn btn-secondary" id="btnResetSettings">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+              <span data-i18n="btnResetSettings">Reset Settings</span>
+            </button>
+            <button class="btn btn-danger" id="btnClearPassword">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+              <span data-i18n="btnClear">Clear</span>
+            </button>
+          </div>
+
+          <!-- Password Analysis & Detailed Breakdown -->
+          <div class="card mt-6">
+            <div class="card-header">
+              <h3 data-i18n="statsHeader">Real-Time Password Composition & Statistics</h3>
+            </div>
+            <div class="card-body">
+              <div class="grid-5 stats-composition">
+                <div class="comp-box">
+                  <span class="comp-val" id="statCharTotal">16</span>
+                  <span class="comp-lbl" data-i18n="statLength">Length</span>
+                </div>
+                <div class="comp-box">
+                  <span class="comp-val" id="statCharUpper">4</span>
+                  <span class="comp-lbl" data-i18n="statUpper">Uppercase</span>
+                </div>
+                <div class="comp-box">
+                  <span class="comp-val" id="statCharLower">6</span>
+                  <span class="comp-lbl" data-i18n="statLower">Lowercase</span>
+                </div>
+                <div class="comp-box">
+                  <span class="comp-val" id="statCharNum">3</span>
+                  <span class="comp-lbl" data-i18n="statNumbers">Numbers</span>
+                </div>
+                <div class="comp-box">
+                  <span class="comp-val" id="statCharSym">3</span>
+                  <span class="comp-lbl" data-i18n="statSymbols">Symbols</span>
+                </div>
+              </div>
+
+              <div class="breach-warning-banner hidden" id="genBreachWarning">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                <div class="w-text">
+                  <strong data-i18n="breachDetectedTitle">Offline Breach Warning:</strong>
+                  <span id="genBreachReason">This password was found in common password dictionaries. Choose higher difficulty.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+
+        <!-- ==================== HEALTH CHECKER VIEW ==================== -->
+        <section class="tab-view" id="view-checker">
+          <div class="card">
+            <div class="card-header">
+              <h3 data-i18n="checkerTitle">Offline Password Audit & Health Inspection</h3>
+            </div>
+            <div class="card-body">
+              <p class="text-sm text-muted mb-4" data-i18n="checkerSub">Paste any password to audit its strength, entropy, crack time, and offline dictionary leaks. Zero network requests made.</p>
+              
+              <div class="input-with-action">
+                <input type="password" id="checkerInput" placeholder="Paste or type password to inspect..." autocomplete="off">
+                <button class="icon-btn" id="toggleCheckerVisibility" title="Toggle Visibility">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </button>
+              </div>
+
+              <div class="checker-results mt-6 hidden" id="checkerResults">
+                <div class="grid-3">
+                  <div class="res-box">
+                    <span class="r-title" data-i18n="strength">Strength Rating</span>
+                    <span class="r-val" id="chkScoreRating">STRONG</span>
+                  </div>
+                  <div class="res-box">
+                    <span class="r-title" data-i18n="entropy">Entropy</span>
+                    <span class="r-val" id="chkEntropy">78.5 Bits</span>
+                  </div>
+                  <div class="res-box">
+                    <span class="r-title" data-i18n="crackTime">Est. Crack Time</span>
+                    <span class="r-val" id="chkCrackTime">140 Years</span>
+                  </div>
+                </div>
+
+                <div class="suggestions-card mt-6">
+                  <h4 class="mb-3" data-i18n="suggestionsTitle">Security Recommendations</h4>
+                  <ul class="suggestions-list" id="chkSuggestions">
+                    <!-- Dynamic List -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==================== ENCRYPTED VAULT VIEW ==================== -->
+        <section class="tab-view" id="view-vault">
+          
+          <!-- Master Password Login Overlay / Card if locked -->
+          <div class="vault-lock-screen card" id="vaultLockScreen">
+            <div class="lock-icon-wrap">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            </div>
+            <h3 data-i18n="vaultLockTitle">Web Crypto Encrypted Vault</h3>
+            <p data-i18n="vaultLockSub">Enter your Master Password to derive PBKDF2 key and decrypt vault credentials locally using 256-bit AES-GCM.</p>
+            
+            <form class="vault-unlock-form" id="vaultUnlockForm">
+              <div class="form-group max-w-md mx-auto mt-4">
+                <input type="password" id="masterPasswordInput" placeholder="Enter Master Password..." required>
+                <button type="submit" class="btn btn-primary w-full mt-3" id="btnUnlockVault">
+                  <span data-i18n="unlockVault">Unlock Vault</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Unlocked Vault Interface -->
+          <div class="vault-workspace hidden" id="vaultWorkspace">
+            
+            <!-- Controls Bar -->
+            <div class="card mb-6">
+              <div class="card-body flex-between gap-4 flex-wrap">
+                <div class="search-wrap flex-1 min-w-200">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input type="text" id="vaultSearch" placeholder="Search vault items by title, username, category...">
+                </div>
+
+                <div class="filter-wrap flex-gap-2">
+                  <select id="vaultCategoryFilter" class="select-styled" aria-label="Filter category">
+                    <option value="all" data-i18n="catAll">All Categories</option>
+                    <option value="email">Email</option>
+                    <option value="banking">Banking</option>
+                    <option value="social">Social Media</option>
+                    <option value="gaming">Gaming</option>
+                    <option value="server">Server / Database</option>
+                    <option value="crypto">Crypto Wallet</option>
+                    <option value="wifi">Wi-Fi Router</option>
+                  </select>
+
+                  <button class="btn btn-primary" id="btnNewVaultEntry">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    <span data-i18n="addEntry">Add Item</span>
+                  </button>
+
+                  <button class="btn btn-secondary" id="btnLockVault" title="Lock Vault">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    <span data-i18n="lockVault">Lock</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vault Items Table / List -->
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="vault-table">
+                    <thead>
+                      <tr>
+                        <th data-i18n="tblTitle">Title / Service</th>
+                        <th data-i18n="tblUsername">Username</th>
+                        <th data-i18n="tblCategory">Category</th>
+                        <th data-i18n="tblPassword">Password</th>
+                        <th data-i18n="tblAge">Age</th>
+                        <th data-i18n="tblActions">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="vaultTableBody">
+                      <!-- Dynamic rows -->
+                    </tbody>
+                  </table>
+                </div>
+                <div class="empty-state hidden" id="vaultEmptyState">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  <h4 data-i18n="emptyVaultTitle">Vault is Empty</h4>
+                  <p data-i18n="emptyVaultSub">Add your first encrypted credential or generate a new password.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==================== SECURITY AUDIT DASHBOARD ==================== -->
+        <section class="tab-view" id="view-security">
+          <div class="card">
+            <div class="card-header">
+              <h3 data-i18n="auditTitle">Vault Security & Password Health Audit</h3>
+            </div>
+            <div class="card-body">
+              <div class="grid-3 mb-6">
+                <div class="audit-summary-card green">
+                  <h4 data-i18n="auditStrongTitle">Strong & Unique</h4>
+                  <span class="audit-count" id="auditStrongCount">0</span>
+                  <span class="audit-desc" data-i18n="auditStrongDesc">High entropy credentials</span>
+                </div>
+                <div class="audit-summary-card yellow">
+                  <h4 data-i18n="auditReusedTitle">Reused Passwords</h4>
+                  <span class="audit-count" id="auditReusedCount">0</span>
+                  <span class="audit-desc" data-i18n="auditReusedDesc">Credentials used across multiple services</span>
+                </div>
+                <div class="audit-summary-card red">
+                  <h4 data-i18n="auditExpiredTitle">Expired Credentials</h4>
+                  <span class="audit-count" id="auditExpiredCount">0</span>
+                  <span class="audit-desc" data-i18n="auditExpiredDesc">Older than 90 days</span>
+                </div>
+              </div>
+
+              <div id="auditReportDetails">
+                <h4 class="mb-3" data-i18n="auditActionNeeded">Action Required Items</h4>
+                <div class="audit-list" id="auditIssuesList">
+                  <!-- Dynamic Audit Issues -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==================== PASSPHRASE GENERATOR VIEW ==================== -->
+        <section class="tab-view" id="view-passphrase">
+          <div class="card">
+            <div class="card-header">
+              <h3 data-i18n="passphraseTitle">Sentence to Secure Passphrase Converter</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group mb-4">
+                <label class="form-label" data-i18n="memorablePhraseLabel">Write a memorable phrase (e.g., "I love Morocco 2026")</label>
+                <input type="text" id="passphraseInput" value="I love Morocco 2026" placeholder="Enter memorable sentence...">
+              </div>
+
+              <div class="password-output-card my-4">
+                <div class="password-display" id="passphraseOutput">!ILvM0r0cc0#2026$</div>
+                <button class="btn btn-copy" id="copyPassphraseBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span data-i18n="copyBtn">Copy</span>
+                </button>
+              </div>
+
+              <button class="btn btn-primary" id="btnGenPassphrase">
+                <span data-i18n="convertPassphrase">Transform Sentence</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==================== PRONOUNCEABLE GENERATOR VIEW ==================== -->
+        <section class="tab-view" id="view-pronounceable">
+          <div class="card">
+            <div class="card-header">
+              <h3 data-i18n="pronounceTitle">Phonetic Pronounceable Password Generator</h3>
+            </div>
+            <div class="card-body">
+              <div class="password-output-card my-4">
+                <div class="password-display" id="pronounceOutput">MekoFira82!</div>
+                <button class="btn btn-copy" id="copyPronounceBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span data-i18n="copyBtn">Copy</span>
+                </button>
+              </div>
+
+              <button class="btn btn-primary" id="btnGenPronounce">
+                <span data-i18n="genPronounce">Generate Pronounceable</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==================== USERNAME GENERATOR VIEW ==================== -->
+        <section class="tab-view" id="view-username">
+          <div class="card">
+            <div class="card-header">
+              <h3 data-i18n="usernameTitle">Cyber & Tech Random Username Generator</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group mb-4">
+                <label class="form-label" data-i18n="usernameStyle">Select Style Theme</label>
+                <select id="usernameStyleSelect" class="select-styled">
+                  <option value="cyber">Cyber / Tech (e.g., ShadowFox92, PixelKnight)</option>
+                  <option value="gaming">Gaming Pro (e.g., DarkFalcon, NovaByte)</option>
+                  <option value="minimal">Clean Minimal (e.g., AlexVortex, SolarCore)</option>
+                </select>
+              </div>
+
+              <div class="password-output-card my-4">
+                <div class="password-display" id="usernameOutput">ShadowFox92</div>
+                <button class="btn btn-copy" id="copyUsernameBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span data-i18n="copyBtn">Copy Username</span>
+                </button>
+              </div>
+
+              <button class="btn btn-primary" id="btnGenUsername">
+                <span data-i18n="genUsername">Generate Handle</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==================== PIN GENERATOR VIEW ==================== -->
+        <section class="tab-view" id="view-pin">
+          <div class="card">
+            <div class="card-header">
+              <h3 data-i18n="pinTitle">Cryptographic Secure PIN Generator</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group mb-4">
+                <label class="form-label" data-i18n="pinLength">Select Digits</label>
+                <div class="length-presets">
+                  <button class="btn-preset btn-pin-len" data-pinlen="4">4 Digits</button>
+                  <button class="btn-preset btn-pin-len active" data-pinlen="6">6 Digits</button>
+                  <button class="btn-preset btn-pin-len" data-pinlen="8">8 Digits</button>
+                </div>
+              </div>
+
+              <div class="password-output-card my-4">
+                <div class="password-display" id="pinOutput">849204</div>
+                <button class="btn btn-copy" id="copyPinBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span data-i18n="copyBtn">Copy PIN</span>
+                </button>
+              </div>
+
+              <button class="btn btn-primary" id="btnGenPin">
+                <span data-i18n="genPin">Generate Secure PIN</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==================== WI-FI PASSWORD GENERATOR VIEW ==================== -->
+        <section class="tab-view" id="view-wifi">
+          <div class="card">
+            <div class="card-header">
+              <h3 data-i18n="wifiTitle">WPA2 / WPA3 Wi-Fi Passphrase & Config QR</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group mb-4">
+                <label class="form-label" data-i18n="ssidLabel">Network Name (SSID)</label>
+                <input type="text" id="wifiSsidInput" value="CyberGuard_Home_5G" placeholder="Enter Wi-Fi Name...">
+              </div>
+
+              <div class="password-output-card my-4">
+                <div class="password-display" id="wifiOutput">K9#mX2$vLp8!zQn4</div>
+                <button class="btn btn-copy" id="copyWifiBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  <span data-i18n="copyBtn">Copy WPA Key</span>
+                </button>
+              </div>
+
+              <div class="flex-gap-2">
+                <button class="btn btn-primary" id="btnGenWifi">
+                  <span data-i18n="genWifi">Generate Wi-Fi Password</span>
+                </button>
+                <button class="btn btn-secondary" id="btnWifiQr">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
+                  <span data-i18n="wifiQrBtn">Show Connect QR</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==================== SETTINGS VIEW ==================== -->
+        <section class="tab-view" id="view-settings">
+          <div class="card">
+            <div class="card-header">
+              <h3 data-i18n="settingsTitle">System Preferences & Storage Control</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group mb-6">
+                <label class="form-label" data-i18n="historySetting">Remember Password History (Last 5)</label>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="settingKeepHistory" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div class="form-group mb-6">
+                <label class="form-label" data-i18n="exportImportVault">Encrypted Vault Backup / Restore</label>
+                <div class="flex-gap-2 mt-2">
+                  <button class="btn btn-secondary" id="btnExportVaultJSON">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span data-i18n="exportVault">Export Vault Backup (JSON)</span>
+                  </button>
+                  <label class="btn btn-secondary cursor-pointer">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    <span data-i18n="importVault">Import Vault Backup</span>
+                    <input type="file" id="importVaultFileInput" accept=".json" class="hidden">
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group mt-6">
+                <button class="btn btn-danger" id="btnClearAllData">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                  <span data-i18n="clearAllLocalData">Clear All Local Data & History</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==================== HELP CENTER VIEW ==================== -->
+        <section class="tab-view" id="view-help">
+          <div class="card">
+            <div class="card-header">
+              <h3 data-i18n="helpTitle">Cybersecurity Guide & Keyboard Shortcuts</h3>
+            </div>
+            <div class="card-body">
+              <h4 class="mb-3" data-i18n="shortcutsTitle">Keyboard Shortcuts Reference</h4>
+              <div class="grid-2 mb-6">
+                <div class="shortcut-item">
+                  <kbd>Space</kbd> / <kbd>Enter</kbd>
+                  <span data-i18n="scGenerate">Generate new password</span>
+                </div>
+                <div class="shortcut-item">
+                  <kbd>Ctrl</kbd> + <kbd>C</kbd>
+                  <span data-i18n="scCopy">Copy current generated password</span>
+                </div>
+                <div class="shortcut-item">
+                  <kbd>Escape</kbd>
+                  <span data-i18n="scClear">Clear fields / close modals</span>
+                </div>
+              </div>
+
+              <h4 class="mb-3" data-i18n="faqTitle">Frequently Asked Questions</h4>
+              <div class="faq-list">
+                <div class="faq-item">
+                  <strong data-i18n="faqQ1">Are generated passwords saved on any server?</strong>
+                  <p data-i18n="faqA1">No. 100% of generation and cryptography happens inside your web browser engine using window.crypto.getRandomValues(). No network requests are made.</p>
+                </div>
+                <div class="faq-item mt-3">
+                  <strong data-i18n="faqQ2">How does the Encrypted Vault work?</strong>
+                  <p data-i18n="faqA2">The vault derives a 256-bit AES key from your Master Password using PBKDF2 with SHA-256 (100,000 iterations). Your credentials are encrypted locally with AES-GCM before saving to localStorage.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- QR CODE MODAL -->
+  <div class="modal-overlay hidden" id="qrModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 data-i18n="qrModalTitle">QR Code Representation</h3>
+        <button class="icon-btn" id="closeQrModal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="qr-canvas-wrap">
+          <canvas id="qrCanvas" width="220" height="220"></canvas>
+        </div>
+        <p class="text-xs text-muted mt-2" data-i18n="qrScanSub">Scan with mobile camera to copy password.</p>
+      </div>
+      <div class="modal-footer flex-center">
+        <button class="btn btn-primary" id="btnDownloadQrPNG">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span data-i18n="downloadPNG">Download PNG</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VAULT ENTRY MODAL -->
+  <div class="modal-overlay hidden" id="vaultItemModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="vaultModalHeading" data-i18n="addVaultItem">Add New Vault Entry</h3>
+        <button class="icon-btn" id="closeVaultModal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+      </div>
+      <div class="modal-body">
+        <form id="vaultEntryForm">
+          <input type="hidden" id="entryEditId">
+          <div class="form-group mb-3">
+            <label class="form-label" data-i18n="lblServiceTitle">Title / Service</label>
+            <input type="text" id="entryTitle" placeholder="e.g., Google Account, Banking" required>
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-label" data-i18n="lblUsername">Username / Email</label>
+            <input type="text" id="entryUsername" placeholder="e.g., user@example.com" required>
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-label" data-i18n="lblCategory">Category</label>
+            <select id="entryCategory" class="select-styled">
+              <option value="email">Email</option>
+              <option value="banking">Banking</option>
+              <option value="social">Social Media</option>
+              <option value="gaming">Gaming</option>
+              <option value="server">Server / SSH</option>
+              <option value="crypto">Crypto Wallet</option>
+              <option value="wifi">Wi-Fi Router</option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label class="form-label" data-i18n="lblPassword">Password</label>
+            <div class="input-with-action">
+              <input type="password" id="entryPassword" required>
+              <button type="button" class="icon-btn" id="btnFillGenPass" title="Fill with current generated">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer flex-end mt-4">
+            <button type="button" class="btn btn-secondary" id="cancelVaultModal" data-i18n="cancel">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-i18n="saveEntry">Save Encrypted Entry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
