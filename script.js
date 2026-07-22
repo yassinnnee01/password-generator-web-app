@@ -46,7 +46,7 @@ const I18N = {
     titlePin: "Secure PIN Generator",
     subPin: "Cryptographic Multi-Digit PINs",
     titleWifi: "Wi-Fi Security Keys",
-    subWifi: "WPA2/WPA3 Passphrases & Config QR Code",
+    subWifi: "WPA2/WPA3 Passphrases",
     titleSettings: "System Settings",
     subSettings: "Storage, Themes & Preferences",
     titleHelp: "Help & Security Guide",
@@ -71,8 +71,8 @@ const I18N = {
     qPassphraseDesc: "Transform sentences like 'I love Morocco 2026' into secure tokens.",
     qPronounceTitle: "Pronounceable Generator",
     qPronounceDesc: "Generate easy-to-remember phonetic words (e.g. MekoFira82!).",
-    qWifiTitle: "Wi-Fi Password & QR",
-    qWifiDesc: "Create high-entropy WPA2/WPA3 keys with instant QR connection code.",
+    qWifiTitle: "Wi-Fi Password",
+    qWifiDesc: "Create high-entropy WPA2/WPA3 keys for secure home & office routers.",
     dailyTipTitle: "Daily Cybersecurity Insights",
     presetLabel: "Optimized Category Presets:",
     presetCustom: "Custom",
@@ -157,10 +157,9 @@ const I18N = {
     pinTitle: "Cryptographic Secure PIN Generator",
     pinLength: "Select Digits",
     genPin: "Generate Secure PIN",
-    wifiTitle: "WPA2 / WPA3 Wi-Fi Passphrase & Config QR",
+    wifiTitle: "WPA2 / WPA3 Wi-Fi Passphrase Generator",
     ssidLabel: "Network Name (SSID)",
     genWifi: "Generate Wi-Fi Password",
-    wifiQrBtn: "Show Connect QR",
     settingsTitle: "System Preferences & Storage Control",
     historySetting: "Remember Password History (Last 5)",
     exportImportVault: "Encrypted Vault Backup / Restore",
@@ -177,9 +176,6 @@ const I18N = {
     faqA1: "No. 100% of generation and cryptography happens inside your web browser engine using window.crypto.getRandomValues(). No network requests are made.",
     faqQ2: "How does the Encrypted Vault work?",
     faqA2: "The vault derives a 256-bit AES key from your Master Password using PBKDF2 with SHA-256 (100,000 iterations). Your credentials are encrypted locally with AES-GCM before saving to localStorage.",
-    qrModalTitle: "QR Code Representation",
-    qrScanSub: "Scan with mobile camera to copy password.",
-    downloadPNG: "Download PNG",
     addVaultItem: "Add New Vault Entry",
     lblServiceTitle: "Title / Service",
     lblUsername: "Username / Email",
@@ -230,7 +226,7 @@ const I18N = {
     titlePin: "Générateur de code PIN sécurisé",
     subPin: "Codes PIN multi-chiffres cryptographiques",
     titleWifi: "Clés de sécurité Wi-Fi",
-    subWifi: "Phrases de passe WPA2/WPA3 & QR Code",
+    subWifi: "Phrases de passe WPA2/WPA3",
     titleSettings: "Paramètres système",
     subSettings: "Stockage, thèmes & préférences",
     titleHelp: "Aide et guide de sécurité",
@@ -255,8 +251,8 @@ const I18N = {
     qPassphraseDesc: "Transformez des phrases simples en jetons sécurisés.",
     qPronounceTitle: "Générateur prononçable",
     qPronounceDesc: "Mots phonétiques faciles à retenir (ex. MekoFira82!).",
-    qWifiTitle: "Mot de passe Wi-Fi & QR",
-    qWifiDesc: "Créez des clés WPA2/WPA3 avec QR Code instantané.",
+    qWifiTitle: "Mot de passe Wi-Fi",
+    qWifiDesc: "Créez des clés WPA2/WPA3 de haute entropie pour vos routeurs.",
     dailyTipTitle: "Conseils quotidiens de cybersécurité",
     presetLabel: "Préréglages par catégorie :",
     presetCustom: "Personnalisé",
@@ -341,10 +337,9 @@ const I18N = {
     pinTitle: "Générateur de code PIN sécurisé",
     pinLength: "Nombre de chiffres",
     genPin: "Générer un PIN sécurisé",
-    wifiTitle: "Clé Wi-Fi WPA2 / WPA3 & QR Code",
+    wifiTitle: "Générateur de clé Wi-Fi WPA2 / WPA3",
     ssidLabel: "Nom du réseau (SSID)",
     genWifi: "Générer clé Wi-Fi",
-    wifiQrBtn: "Afficher le QR Code",
     settingsTitle: "Préférences système & Stockage",
     historySetting: "Conserver l'historique (5 derniers)",
     exportImportVault: "Sauvegarde & Restauration du coffre",
@@ -361,9 +356,6 @@ const I18N = {
     faqA1: "Non. 100% de la génération se fait dans votre navigateur via window.crypto.getRandomValues().",
     faqQ2: "Comment fonctionne le coffre fort chiffré ?",
     faqA2: "Le coffre dérive une clé AES 256 bits via PBKDF2 (100 000 itérations). Les identifiants sont chiffrés localement en AES-GCM.",
-    qrModalTitle: "Représentation QR Code",
-    qrScanSub: "Scannez avec un téléphone pour copier le mot de passe.",
-    downloadPNG: "Télécharger PNG",
     addVaultItem: "Ajouter au coffre",
     lblServiceTitle: "Titre / Service",
     lblUsername: "Identifiant / Email",
@@ -414,7 +406,7 @@ const I18N = {
     titlePin: "مولد رمز PIN الآمن",
     subPin: "أرقام PIN مشفرة متعددة الخانات",
     titleWifi: "مفاتيح أمان Wi-Fi",
-    subWifi: "عبارات مرور WPA2/WPA3 ورمز QR للتوصيل",
+    subWifi: "عبارات مرور WPA2/WPA3",
     titleSettings: "إعدادات النظام",
     subSettings: "التخزين، المظاهر والتفضيلات",
     titleHelp: "المساعدة ودليل الأمان",
@@ -439,8 +431,8 @@ const I18N = {
     qPassphraseDesc: "تحويل جمل مثل 'I love Morocco 2026' إلى رموز آمنة.",
     qPronounceTitle: "مولد كلمات سهلة النطق",
     qPronounceDesc: "كلمات صوتية سهلة التذكر (مثل MekoFira82!).",
-    qWifiTitle: "كلمة سر Wi-Fi و QR",
-    qWifiDesc: "إنشاء مفاتيح WPA2/WPA3 مع رمز QR للاتصال الفوري.",
+    qWifiTitle: "كلمة سر Wi-Fi",
+    qWifiDesc: "إنشاء مفاتيح WPA2/WPA3 عالية الأمان لموجهات الشبكة.",
     dailyTipTitle: "نصائح الأمن السيبراني اليومية",
     presetLabel: "الإعدادات المسبقة حسب الفئة:",
     presetCustom: "مخصص",
@@ -525,10 +517,9 @@ const I18N = {
     pinTitle: "مولد رمز PIN المشفر",
     pinLength: "عدد الأرقام",
     genPin: "توليد رمز PIN",
-    wifiTitle: "كلمات سر Wi-Fi ورمز QR",
+    wifiTitle: "مولد كلمات سر Wi-Fi WPA2 / WPA3",
     ssidLabel: "اسم الشبكة (SSID)",
     genWifi: "توليد كلمة سر Wi-Fi",
-    wifiQrBtn: "عرض رمز QR للاتصال",
     settingsTitle: "تفضيلات النظام والتخزين",
     historySetting: "تذكر سجل كلمات المرور (آخر 5)",
     exportImportVault: "نسخ احتياطي واستعادة الخزنة المشفرة",
@@ -545,9 +536,6 @@ const I18N = {
     faqA1: "لا. 100% من التشفير والتوليد يتم داخل متصفحك باستخدام window.crypto.getRandomValues().",
     faqQ2: "كيف تعمل الخزنة المشفرة؟",
     faqA2: "تستخرج الخزنة مفتاح AES 256-bit باستخدام PBKDF2 (100,000 تكرار). يتم تشفير البيانات محلياً بـ AES-GCM.",
-    qrModalTitle: "تمثيل رمز QR",
-    qrScanSub: "امسح باستخدام كاميرا الهاتف لنسخ كلمة المرور.",
-    downloadPNG: "تحميل صورة PNG",
     addVaultItem: "إضافة عنصر جديد للخزنة",
     lblServiceTitle: "العنوان / الخدمة",
     lblUsername: "اسم المستخدم / البريد",
@@ -1018,72 +1006,6 @@ class SecurityAnalyzer {
     }
 
     return suggestions;
-  }
-}
-
-
-/* ============================================================================
-   5. PURE VANILLA JS CANVAS QR CODE ENGINE
-   ============================================================================ */
-class SimpleQRCodeEngine {
-
-  /**
-   * Draw QR Code matrix directly on HTML5 Canvas without external libraries
-   */
-  static drawQR(text, canvasId) {
-    const canvas = document.getElementById(canvasId);
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width;
-    const height = canvas.height;
-
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, width, height);
-
-    // Simple deterministic pseudo-matrix based on text hash
-    const matrixSize = 25;
-    const cellSize = Math.floor(width / matrixSize);
-    
-    ctx.fillStyle = '#0f172a';
-
-    // Draw standard QR finder patterns at 3 corners
-    this.drawFinderPattern(ctx, 0, 0, cellSize);
-    this.drawFinderPattern(ctx, (matrixSize - 7) * cellSize, 0, cellSize);
-    this.drawFinderPattern(ctx, 0, (matrixSize - 7) * cellSize, cellSize);
-
-    // Hash data for center pattern
-    let hash = 0;
-    for (let i = 0; i < text.length; i++) {
-      hash = ((hash << 5) - hash) + text.charCodeAt(i);
-      hash |= 0;
-    }
-
-    for (let row = 0; row < matrixSize; row++) {
-      for (let col = 0; col < matrixSize; col++) {
-        // Skip finder areas
-        if ((row < 8 && col < 8) || (row < 8 && col > matrixSize - 9) || (row > matrixSize - 9 && col < 8)) {
-          continue;
-        }
-
-        const isFilled = Math.abs((hash ^ (row * 31 + col * 17)) % 3) === 0;
-        if (isFilled) {
-          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        }
-      }
-    }
-  }
-
-  static drawFinderPattern(ctx, x, y, cellSize) {
-    const size = 7 * cellSize;
-    ctx.fillStyle = '#0f172a';
-    ctx.fillRect(x, y, size, size);
-
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(x + cellSize, y + cellSize, size - 2 * cellSize, size - 2 * cellSize);
-
-    ctx.fillStyle = '#0f172a';
-    ctx.fillRect(x + 2 * cellSize, y + 2 * cellSize, size - 4 * cellSize, size - 4 * cellSize);
   }
 }
 
@@ -1758,34 +1680,6 @@ class CyberGuardApp {
       this.saveVaultItems();
       document.getElementById('vaultItemModal')?.classList.add('hidden');
       document.getElementById('vaultEntryForm').reset();
-    });
-
-    // QR Code Modal & PNG Download
-    document.getElementById('genQrBtn')?.addEventListener('click', () => {
-      document.getElementById('qrModal')?.classList.remove('hidden');
-      SimpleQRCodeEngine.drawQR(this.state.generatedPassword, 'qrCanvas');
-    });
-
-    document.getElementById('btnWifiQr')?.addEventListener('click', () => {
-      const ssid = document.getElementById('wifiSsidInput')?.value || 'WifiNetwork';
-      const pass = document.getElementById('wifiOutput')?.textContent || '';
-      const configStr = `WIFI:S:${ssid};T:WPA;P:${pass};;`;
-
-      document.getElementById('qrModal')?.classList.remove('hidden');
-      SimpleQRCodeEngine.drawQR(configStr, 'qrCanvas');
-    });
-
-    document.getElementById('closeQrModal')?.addEventListener('click', () => {
-      document.getElementById('qrModal')?.classList.add('hidden');
-    });
-
-    document.getElementById('btnDownloadQrPNG')?.addEventListener('click', () => {
-      const canvas = document.getElementById('qrCanvas');
-      if (!canvas) return;
-      const link = document.createElement('a');
-      link.download = 'cyberguard-password-qr.png';
-      link.href = canvas.toDataURL();
-      link.click();
     });
 
     // Exporters

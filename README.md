@@ -19,7 +19,7 @@
 - **Phonetic Pronounceable Generator**: Creates easy-to-remember pronounceable passwords.
 - **Cyber Handle Generator**: Generates random tech and cyber handles.
 - **PIN Generator**: Cryptographic multi-digit PIN generator.
-- **Wi-Fi Passphrase & QR Code**: WPA2/WPA3 password generator with instant Canvas QR code rendering and PNG download.
+- **Wi-Fi Passphrase**: WPA2/WPA3 password generator.
 
 ### 🛡️ Password Health Audit & Leak Checker
 - **Entropy Calculation**: Computes real-time entropy in bits ($E = L \times \log_2(R)$).
@@ -70,7 +70,6 @@
 - **Styling**: Modern CSS3 (Variables, Flexbox, CSS Grid, Glassmorphism, Transitions)
 - **Cryptography**: Web Crypto API (`CryptoKey`, `subtle.importKey`, `subtle.deriveKey`, `subtle.encrypt`, `subtle.decrypt`)
 - **PWA**: Service Worker API, Cache Storage API, Web App Manifest
-- **QR Code**: HTML5 Canvas Rendering
 
 ---
 

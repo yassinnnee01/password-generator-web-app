@@ -276,8 +276,8 @@
                 <button class="tool-quick-item" onclick="app.switchTab('wifi')">
                   <div class="t-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg></div>
                   <div class="t-info">
-                    <h4 data-i18n="qWifiTitle">Wi-Fi Password & QR</h4>
-                    <p data-i18n="qWifiDesc">Create high-entropy WPA2/WPA3 keys with instant QR connection code.</p>
+                    <h4 data-i18n="qWifiTitle">Wi-Fi Password</h4>
+                    <p data-i18n="qWifiDesc">Create high-entropy WPA2/WPA3 keys for secure home & office routers.</p>
                   </div>
                 </button>
               </div>
@@ -330,9 +330,6 @@
             <div class="output-top-bar">
               <span class="security-badge" id="genStrengthBadge">EXPERT</span>
               <div class="output-quick-actions">
-                <button class="action-btn" id="genQrBtn" title="Show QR Code">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="3" height="3"></rect></svg>
-                </button>
                 <button class="action-btn" id="genExportBtn" title="Export Password">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 </button>
@@ -843,7 +840,7 @@
         <section class="tab-view" id="view-wifi">
           <div class="card">
             <div class="card-header">
-              <h3 data-i18n="wifiTitle">WPA2 / WPA3 Wi-Fi Passphrase & Config QR</h3>
+              <h3 data-i18n="wifiTitle">WPA2 / WPA3 Wi-Fi Passphrase Generator</h3>
             </div>
             <div class="card-body">
               <div class="form-group mb-4">
@@ -862,10 +859,6 @@
               <div class="flex-gap-2">
                 <button class="btn btn-primary" id="btnGenWifi">
                   <span data-i18n="genWifi">Generate Wi-Fi Password</span>
-                </button>
-                <button class="btn btn-secondary" id="btnWifiQr">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
-                  <span data-i18n="wifiQrBtn">Show Connect QR</span>
                 </button>
               </div>
             </div>
@@ -953,28 +946,6 @@
         </section>
 
       </main>
-    </div>
-  </div>
-
-  <!-- QR CODE MODAL -->
-  <div class="modal-overlay hidden" id="qrModal">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 data-i18n="qrModalTitle">QR Code Representation</h3>
-        <button class="icon-btn" id="closeQrModal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
-      </div>
-      <div class="modal-body text-center">
-        <div class="qr-canvas-wrap">
-          <canvas id="qrCanvas" width="220" height="220"></canvas>
-        </div>
-        <p class="text-xs text-muted mt-2" data-i18n="qrScanSub">Scan with mobile camera to copy password.</p>
-      </div>
-      <div class="modal-footer flex-center">
-        <button class="btn btn-primary" id="btnDownloadQrPNG">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          <span data-i18n="downloadPNG">Download PNG</span>
-        </button>
-      </div>
     </div>
   </div>
 

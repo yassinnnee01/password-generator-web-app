@@ -1518,14 +1518,6 @@ kbd {
   gap: 0.75rem;
 }
 
-.qr-canvas-wrap {
-  display: inline-block;
-  padding: 1rem;
-  background: #fff;
-  border-radius: var(--radius-md);
-  margin: 0 auto;
-}
-
 /* Toast Notifications */
 .toast-container {
   position: fixed;
